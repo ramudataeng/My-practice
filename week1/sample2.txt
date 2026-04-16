@@ -1,0 +1,4 @@
+This is a sample file for File handling
+This is an example for practice without deleting the old content
+
+ This is an additional line

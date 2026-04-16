@@ -1,0 +1,6 @@
+id,name,age,city
+1,Amit,20,Mumbai
+2,Sara,22,Delhi
+3,John,19,Pune
+4,Riya,21,Bangalore
+5,David,23,Chennai

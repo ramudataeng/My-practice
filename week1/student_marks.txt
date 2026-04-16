@@ -1,0 +1,6 @@
+id,name,maths,science,english,total
+1,Amit,85,90,80,255
+2,Sara,92,88,91,271
+3,John,75,70,78,223
+4,Riya,95,89,94,278
+5,David,60,65,70,195
