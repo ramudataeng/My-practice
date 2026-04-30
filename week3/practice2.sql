@@ -10,20 +10,20 @@ SELECT * FROM sales;
 # general method
 # 1. find the sum of sales of each store -- total_sales
 SELECT store_id, SUM(cost) as total_sales_per_store
-FROM sales
-GROUP BY store_id;
+	FROM sales
+	GROUP BY store_id;
 # 2. find the average of total sales of all stores -- avg_sales
 SELECT AVG(total_sales_per_store) AS avg_sales_for_allstores
 	FROM(SELECT store_id, SUM(cost) as total_sales_per_store
-		FROM sales
-		GROUP BY store_id) x;
+		 FROM sales
+		 GROUP BY store_id) x;
 
 # 3. select stores where total_sales > avg_sales 
 
 SELECT *
 FROM(SELECT store_id, SUM(cost) as total_sales_per_store
-	FROM sales
-	GROUP BY store_id) total_sales
+		FROM sales
+		GROUP BY store_id) total_sales
 JOIN (SELECT AVG(total_sales_per_store) AS avg_sales_for_allstores
 			FROM(SELECT store_id, SUM(cost) as total_sales_per_store
 			FROM sales
