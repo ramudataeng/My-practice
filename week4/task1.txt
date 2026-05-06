@@ -1,0 +1,10 @@
+CREATE TABLE `Customer` (
+  `customer_id` <type>,
+  `first_name` <type>,
+  `last_name` <type>,
+  `street` <type>,
+  `city` <type>,
+  `zip` <type>,
+  `phone` <type>,
+  KEY `Key` (`customer_id`, `first_name`, `last_name`, `street`, `city`, `zip`, `phone`)
+);
