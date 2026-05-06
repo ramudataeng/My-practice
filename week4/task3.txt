@@ -1,0 +1,32 @@
+CREATE TABLE `Customer` (
+  `customer_id` <type>,
+  `first_name` <type>,
+  `last_name` <type>,
+  `street` <type>,
+  `city` <type>,
+  `zip` <type>,
+  `phone` <type>,
+  PRIMARY KEY (`customer_id`)
+);
+
+CREATE TABLE `product` (
+  `product_id` <type>,
+  `quantity` <type>,
+  `product_type` <type>,
+  PRIMARY KEY (`product_id`)
+);
+
+CREATE TABLE `Order` (
+  `order_id` <type>,
+  `customert_id` <type>,
+  `customer_name` <type>,
+  `to_street` <type>,
+  `to_city` <type>,
+  `to_state` <type>,
+  `to_zip` <type>,
+  `ship_date` <type>,
+  `product_id` <type>,
+  PRIMARY KEY (`order_id`),
+  FOREIGN KEY (`customert_id`)
+      REFERENCES `Customer`(`customer_id`)
+);

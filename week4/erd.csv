@@ -1,0 +1,10 @@
+mysql	erd	employees	employee_id	1	int		PRIMARY KEY			
+mysql	erd	employees	name	2	varchar	50				
+mysql	erd	employees	department	3	varchar	50				
+mysql	erd	employees	salary	4	int					
+mysql	erd	employees	hire_date	5	date					
+mysql	erd	orders	order_id	1	int		PRIMARY KEY			
+mysql	erd	orders	employee_id	2	int		FOREIGN KEY	erd	employees	employee_id
+mysql	erd	orders	product	3	varchar	50				
+mysql	erd	orders	amount	4	int					
+mysql	erd	orders	order_date	5	date					

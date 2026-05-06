@@ -1,0 +1,245 @@
+mysql	sys	sys_config	variable	1	varchar	128	PRIMARY KEY			
+mysql	sys	sys_config	value	2	varchar	128				
+mysql	sys	sys_config	set_time	3	timestamp					
+mysql	sys	sys_config	set_by	4	varchar	128				
+mysql	sakila	actor	actor_id	1	smallint		PRIMARY KEY			
+mysql	sakila	actor	first_name	2	varchar	45				
+mysql	sakila	actor	last_name	3	varchar	45				
+mysql	sakila	actor	last_update	4	timestamp					
+mysql	sakila	address	address_id	1	smallint		PRIMARY KEY			
+mysql	sakila	address	address	2	varchar	50				
+mysql	sakila	address	address2	3	varchar	50				
+mysql	sakila	address	district	4	varchar	20				
+mysql	sakila	address	city_id	5	smallint		FOREIGN KEY	sakila	city	city_id
+mysql	sakila	address	postal_code	6	varchar	10				
+mysql	sakila	address	phone	7	varchar	20				
+mysql	sakila	address	location	8	geometry					
+mysql	sakila	address	last_update	9	timestamp					
+mysql	sakila	category	category_id	1	tinyint		PRIMARY KEY			
+mysql	sakila	category	name	2	varchar	25				
+mysql	sakila	category	last_update	3	timestamp					
+mysql	sakila	city	city_id	1	smallint		PRIMARY KEY			
+mysql	sakila	city	city	2	varchar	50				
+mysql	sakila	city	country_id	3	smallint		FOREIGN KEY	sakila	country	country_id
+mysql	sakila	city	last_update	4	timestamp					
+mysql	sakila	country	country_id	1	smallint		PRIMARY KEY			
+mysql	sakila	country	country	2	varchar	50				
+mysql	sakila	country	last_update	3	timestamp					
+mysql	sakila	customer	customer_id	1	smallint		PRIMARY KEY			
+mysql	sakila	customer	store_id	2	tinyint		FOREIGN KEY	sakila	store	store_id
+mysql	sakila	customer	first_name	3	varchar	45				
+mysql	sakila	customer	last_name	4	varchar	45				
+mysql	sakila	customer	email	5	varchar	50				
+mysql	sakila	customer	address_id	6	smallint		FOREIGN KEY	sakila	address	address_id
+mysql	sakila	customer	active	7	tinyint					
+mysql	sakila	customer	create_date	8	datetime					
+mysql	sakila	customer	last_update	9	timestamp					
+mysql	sakila	film	film_id	1	smallint		PRIMARY KEY			
+mysql	sakila	film	title	2	varchar	128				
+mysql	sakila	film	description	3	text	65535				
+mysql	sakila	film	release_year	4	year					
+mysql	sakila	film	language_id	5	tinyint		FOREIGN KEY	sakila	language	language_id
+mysql	sakila	film	original_language_id	6	tinyint		FOREIGN KEY	sakila	language	language_id
+mysql	sakila	film	rental_duration	7	tinyint					
+mysql	sakila	film	rental_rate	8	decimal					
+mysql	sakila	film	length	9	smallint					
+mysql	sakila	film	replacement_cost	10	decimal					
+mysql	sakila	film	rating	11	enum	5				
+mysql	sakila	film	special_features	12	set	54				
+mysql	sakila	film	last_update	13	timestamp					
+mysql	sakila	film_actor	actor_id	1	smallint		PRIMARY KEY			
+mysql	sakila	film_actor	actor_id	1	smallint		FOREIGN KEY	sakila	actor	actor_id
+mysql	sakila	film_actor	film_id	2	smallint		PRIMARY KEY			
+mysql	sakila	film_actor	film_id	2	smallint		FOREIGN KEY	sakila	film	film_id
+mysql	sakila	film_actor	last_update	3	timestamp					
+mysql	sakila	film_category	film_id	1	smallint		PRIMARY KEY			
+mysql	sakila	film_category	film_id	1	smallint		FOREIGN KEY	sakila	film	film_id
+mysql	sakila	film_category	category_id	2	tinyint		PRIMARY KEY			
+mysql	sakila	film_category	category_id	2	tinyint		FOREIGN KEY	sakila	category	category_id
+mysql	sakila	film_category	last_update	3	timestamp					
+mysql	sakila	film_text	film_id	1	smallint		PRIMARY KEY			
+mysql	sakila	film_text	title	2	varchar	255				
+mysql	sakila	film_text	description	3	text	65535				
+mysql	sakila	inventory	inventory_id	1	mediumint		PRIMARY KEY			
+mysql	sakila	inventory	film_id	2	smallint		FOREIGN KEY	sakila	film	film_id
+mysql	sakila	inventory	store_id	3	tinyint		FOREIGN KEY	sakila	store	store_id
+mysql	sakila	inventory	last_update	4	timestamp					
+mysql	sakila	language	language_id	1	tinyint		PRIMARY KEY			
+mysql	sakila	language	name	2	char	20				
+mysql	sakila	language	last_update	3	timestamp					
+mysql	sakila	payment	payment_id	1	smallint		PRIMARY KEY			
+mysql	sakila	payment	customer_id	2	smallint		FOREIGN KEY	sakila	customer	customer_id
+mysql	sakila	payment	staff_id	3	tinyint		FOREIGN KEY	sakila	staff	staff_id
+mysql	sakila	payment	rental_id	4	int		FOREIGN KEY	sakila	rental	rental_id
+mysql	sakila	payment	amount	5	decimal					
+mysql	sakila	payment	payment_date	6	datetime					
+mysql	sakila	payment	last_update	7	timestamp					
+mysql	sakila	rental	rental_id	1	int		PRIMARY KEY			
+mysql	sakila	rental	rental_date	2	datetime		UNIQUE			
+mysql	sakila	rental	inventory_id	3	mediumint		UNIQUE			
+mysql	sakila	rental	inventory_id	3	mediumint		FOREIGN KEY	sakila	inventory	inventory_id
+mysql	sakila	rental	customer_id	4	smallint		UNIQUE			
+mysql	sakila	rental	customer_id	4	smallint		FOREIGN KEY	sakila	customer	customer_id
+mysql	sakila	rental	return_date	5	datetime					
+mysql	sakila	rental	staff_id	6	tinyint		FOREIGN KEY	sakila	staff	staff_id
+mysql	sakila	rental	last_update	7	timestamp					
+mysql	sakila	staff	staff_id	1	tinyint		PRIMARY KEY			
+mysql	sakila	staff	first_name	2	varchar	45				
+mysql	sakila	staff	last_name	3	varchar	45				
+mysql	sakila	staff	address_id	4	smallint		FOREIGN KEY	sakila	address	address_id
+mysql	sakila	staff	picture	5	blob	65535				
+mysql	sakila	staff	email	6	varchar	50				
+mysql	sakila	staff	store_id	7	tinyint		FOREIGN KEY	sakila	store	store_id
+mysql	sakila	staff	active	8	tinyint					
+mysql	sakila	staff	username	9	varchar	16				
+mysql	sakila	staff	password	10	varchar	40				
+mysql	sakila	staff	last_update	11	timestamp					
+mysql	sakila	store	store_id	1	tinyint		PRIMARY KEY			
+mysql	sakila	store	manager_staff_id	2	tinyint		UNIQUE			
+mysql	sakila	store	manager_staff_id	2	tinyint		FOREIGN KEY	sakila	staff	staff_id
+mysql	sakila	store	address_id	3	smallint		FOREIGN KEY	sakila	address	address_id
+mysql	sakila	store	last_update	4	timestamp					
+mysql	world	city	ID	1	int		PRIMARY KEY			
+mysql	world	city	Name	2	char	35				
+mysql	world	city	CountryCode	3	char	3	FOREIGN KEY	world	country	Code
+mysql	world	city	District	4	char	20				
+mysql	world	city	Population	5	int					
+mysql	world	country	Code	1	char	3	PRIMARY KEY			
+mysql	world	country	Name	2	char	52				
+mysql	world	country	Continent	3	enum	13				
+mysql	world	country	Region	4	char	26				
+mysql	world	country	SurfaceArea	5	decimal					
+mysql	world	country	IndepYear	6	smallint					
+mysql	world	country	Population	7	int					
+mysql	world	country	LifeExpectancy	8	decimal					
+mysql	world	country	GNP	9	decimal					
+mysql	world	country	GNPOld	10	decimal					
+mysql	world	country	LocalName	11	char	45				
+mysql	world	country	GovernmentForm	12	char	45				
+mysql	world	country	HeadOfState	13	char	60				
+mysql	world	country	Capital	14	int					
+mysql	world	country	Code2	15	char	2				
+mysql	world	countrylanguage	CountryCode	1	char	3	PRIMARY KEY			
+mysql	world	countrylanguage	CountryCode	1	char	3	FOREIGN KEY	world	country	Code
+mysql	world	countrylanguage	Language	2	char	30	PRIMARY KEY			
+mysql	world	countrylanguage	IsOfficial	3	enum	1				
+mysql	world	countrylanguage	Percentage	4	decimal					
+mysql	studentdb	students	student_id	1	int		PRIMARY KEY			
+mysql	studentdb	students	name	2	varchar	50				
+mysql	studentdb	students	age	3	int					
+mysql	studentdb	students	course	4	varchar	50				
+mysql	studentdb	students	email	5	varchar	100				
+mysql	studentdb	students	city	6	varchar	50				
+mysql	studentdb	students	phone	7	varchar	50				
+mysql	studentpracticedb	students	student_id	1	int		PRIMARY KEY			
+mysql	studentpracticedb	students	name	2	varchar	50				
+mysql	studentpracticedb	students	age	3	int					
+mysql	studentpracticedb	students	course	4	varchar	50				
+mysql	studentpracticedb	students	city	5	varchar	50				
+mysql	studentpracticedb	students	marks	6	int					
+mysql	studentpracticedb	students	email	7	varchar	100				
+mysql	studentpracticedb	students	grade	8	varchar	2				
+mysql	joinsdb	employees	emp_id	1	int		PRIMARY KEY			
+mysql	joinsdb	employees	name	2	varchar	50				
+mysql	joinsdb	employees	department_id	3	int					
+mysql	joinsdb	employees	city	4	varchar	50				
+mysql	joinsdb	departments	department_id	1	int		PRIMARY KEY			
+mysql	joinsdb	departments	department_name	2	varchar	50				
+mysql	joinsdb	projects	project_id	1	int		PRIMARY KEY			
+mysql	joinsdb	projects	project_name	2	varchar	50				
+mysql	joinsdb	projects	department_id	3	int					
+mysql	joinsdb	employee_projects	emp_id	1	int					
+mysql	joinsdb	employee_projects	project_id	2	int					
+mysql	aggregatedb	students	student_id	1	int		PRIMARY KEY			
+mysql	aggregatedb	students	first_name	2	varchar	50				
+mysql	aggregatedb	students	last_name	3	varchar	50				
+mysql	aggregatedb	students	email	4	varchar	100	UNIQUE			
+mysql	aggregatedb	students	birth_date	5	date					
+mysql	aggregatedb	students	enrollment_year	6	year					
+mysql	aggregatedb	students	status	7	varchar	20				
+mysql	aggregatedb	courses	course_id	1	int		PRIMARY KEY			
+mysql	aggregatedb	courses	course_name	2	varchar	100				
+mysql	aggregatedb	courses	credits	3	int					
+mysql	aggregatedb	courses	department	4	varchar	50				
+mysql	aggregatedb	courses	created_at	5	date					
+mysql	aggregatedb	instructors	instructor_id	1	int		PRIMARY KEY			
+mysql	aggregatedb	instructors	name	2	varchar	100				
+mysql	aggregatedb	instructors	hire_date	3	date					
+mysql	aggregatedb	instructors	salary	4	decimal					
+mysql	aggregatedb	instructors	department	5	varchar	50				
+mysql	aggregatedb	instructors	is_active	6	tinyint					
+mysql	collegedb	students	student_id	1	int		PRIMARY KEY			
+mysql	collegedb	students	first_name	2	varchar	50				
+mysql	collegedb	students	last_name	3	varchar	50				
+mysql	collegedb	students	email	4	varchar	50	UNIQUE			
+mysql	collegedb	students	birth_date	5	date					
+mysql	collegedb	students	enrollment_year	6	year					
+mysql	collegedb	students	status	7	varchar	20				
+mysql	collegedb	instructors	instructor_id	1	int		PRIMARY KEY			
+mysql	collegedb	instructors	name	2	varchar	50				
+mysql	collegedb	instructors	hire_date	3	date					
+mysql	collegedb	instructors	salary	4	decimal					
+mysql	collegedb	instructors	department	5	varchar	50				
+mysql	collegedb	instructors	is_active	6	tinyint					
+mysql	collegedb	courses	course_id	1	int		PRIMARY KEY			
+mysql	collegedb	courses	course_name	2	varchar	100				
+mysql	collegedb	courses	credits	3	int					
+mysql	collegedb	courses	department	4	varchar	50				
+mysql	collegedb	courses	created_at	5	date					
+mysql	collegedb	enrollments	enrollment_id	1	int		PRIMARY KEY			
+mysql	collegedb	enrollments	student_id	2	int		FOREIGN KEY	collegedb	students	student_id
+mysql	collegedb	enrollments	course_id	3	int		FOREIGN KEY	collegedb	courses	course_id
+mysql	collegedb	enrollments	enrollment_date	4	date					
+mysql	collegedb	enrollments	grade	5	char	2				
+mysql	collegedb	course_assignments	assignment_id	1	int		PRIMARY KEY			
+mysql	collegedb	course_assignments	instructor_id	2	int		FOREIGN KEY	collegedb	instructors	instructor_id
+mysql	collegedb	course_assignments	course_id	3	int		FOREIGN KEY	collegedb	courses	course_id
+mysql	collegedb	course_assignments	assigned_year	4	year					
+mysql	collegedb	payments	payment_id	1	int		PRIMARY KEY			
+mysql	collegedb	payments	student_id	2	int		FOREIGN KEY	collegedb	students	student_id
+mysql	collegedb	payments	amount	3	decimal					
+mysql	collegedb	payments	payment_date	4	date					
+mysql	collegedb	payments	method	5	varchar	50				
+mysql	collegedb	payments	notes	6	varchar	50				
+mysql	ordersdb	employees	employee_id	1	int		PRIMARY KEY			
+mysql	ordersdb	employees	name	2	varchar	50				
+mysql	ordersdb	employees	department	3	varchar	50				
+mysql	ordersdb	employees	salary	4	int					
+mysql	ordersdb	employees	hire_date	5	date					
+mysql	ordersdb	orders	order_id	1	int		PRIMARY KEY			
+mysql	ordersdb	orders	employee_id	2	int		FOREIGN KEY	ordersdb	employees	employee_id
+mysql	ordersdb	orders	product	3	varchar	50				
+mysql	ordersdb	orders	amount	4	int					
+mysql	ordersdb	orders	order_date	5	date					
+mysql	customersdb	orders	order_id	1	int					
+mysql	customersdb	orders	customer_id	2	int					
+mysql	customersdb	orders	order_date	3	date					
+mysql	customersdb	orders	amount	4	decimal					
+mysql	customersdb	orders	status	5	varchar	20				
+mysql	customersdb	customers	customer_id	1	int					
+mysql	customersdb	customers	name	2	varchar	50				
+mysql	customersdb	customers	city	3	varchar	50				
+mysql	customersdb	customers	age	4	int					
+mysql	customersdb	customers	updated_at	5	date					
+mysql	windowsfndb	emp	emp_ID	1	int					
+mysql	windowsfndb	emp	emp_NAME	2	varchar	50				
+mysql	windowsfndb	emp	SALARY	3	int					
+mysql	windowsfndb	sales	store_id	1	int					
+mysql	windowsfndb	sales	store_name	2	varchar	50				
+mysql	windowsfndb	sales	product	3	varchar	50				
+mysql	windowsfndb	sales	quantity	4	int					
+mysql	windowsfndb	sales	cost	5	int					
+mysql	windowsfndb	employee	emp_id	1	int					
+mysql	windowsfndb	employee	emp_name	2	varchar	50				
+mysql	windowsfndb	employee	dept_name	3	varchar	50				
+mysql	windowsfndb	employee	salary	4	int					
+mysql	erd	employees	employee_id	1	int		PRIMARY KEY			
+mysql	erd	employees	name	2	varchar	50				
+mysql	erd	employees	department	3	varchar	50				
+mysql	erd	employees	salary	4	int					
+mysql	erd	employees	hire_date	5	date					
+mysql	erd	orders	order_id	1	int		PRIMARY KEY			
+mysql	erd	orders	employee_id	2	int		FOREIGN KEY	erd	employees	employee_id
+mysql	erd	orders	product	3	varchar	50				
+mysql	erd	orders	amount	4	int					
+mysql	erd	orders	order_date	5	date					
